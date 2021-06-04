@@ -104,9 +104,9 @@ class mySignIn extends StatelessWidget{
     ),
   );
   Widget buttonSection = new Container(
-    height: 154,
+    height: 170,
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       mainAxisSize: MainAxisSize.min,
       children: [
         _buttonLogin('images/icon_gg.png', 'Continue with Google',btn_gg_color),
