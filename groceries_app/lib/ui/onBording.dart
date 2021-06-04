@@ -9,7 +9,6 @@ final image_bg = AssetImage('images/bg1.png');
 final title_str = 'Welcome to our store';
 final title_color = Color(0xffFFFFFF);
 final small_title_color = Color.fromRGBO(252, 252, 252, 0.7);
-
 final small_title_str = 'Ger your groceries in as fast as one hour';
 
 
@@ -55,7 +54,7 @@ class MyOnBording extends StatelessWidget{
     child: FlatButton(
       child: Text('Get Started',style: TextStyle(
         fontWeight: FontWeight.w600,
-        fontSize: 18.0,
+        fontSize: 18.0,fontFamily:'Gilroy',
       ),),
       color: btn_color,
       textColor: btn_text_color,
