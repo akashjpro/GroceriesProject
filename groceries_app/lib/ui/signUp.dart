@@ -60,7 +60,7 @@ class _LoginFormState extends State<LoginForm>{
 }
 class myLogin extends StatelessWidget{
   Widget logoSection = new Container(
-      margin: EdgeInsets.only(top: 30.0,bottom: 100.21),
+      margin: EdgeInsets.only(top: 30.0,bottom: 50.21),
       alignment: Alignment.topCenter,
       child:Image.asset(
         'images/icon2.png',
@@ -72,7 +72,6 @@ class myLogin extends StatelessWidget{
       margin: EdgeInsets.only(left: 24.53,right: 24.53),
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-
           children: [
             Container(
               margin: EdgeInsets.only(bottom: 15.0),
