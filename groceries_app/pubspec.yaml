@@ -48,7 +48,25 @@ flutter:
   assets:
     - images/logo.png
     - images/bg1.png
+    - images/img_drink.png
+    - images/img_coke.png
+    - images/img_coca.png
+    - images/img_pepsi.png
+    - images/img_orenge.png
+    - images/img_apple.png
+    - images/img_sprite.png
+    - images/img_eggs.png
+    - images/img_snack.png
+    - images/img_meal.png
+    - images/img_oil.png
+    - images/img_vegetable.png
+    - images/item_img.png
     - images/icon1.png
+    - images/icon_fillter.png
+    - images/icon_minus.png
+    - images/icon_plus_number.png
+    - images/icon_back_arrow.png
+    - images/icon_share.png
     - images/icon_store.png
     - images/icon_cart.png
     - images/icon_favourite.png
@@ -56,6 +74,7 @@ flutter:
     - images/icon_account.png
     - images/icon_chicken.png
     - images/icon_beef.png
+    - images/icon_cancel.png
     - images/icon_rice.png
     - images/icon_pulses.png
     - images/icon_item.png

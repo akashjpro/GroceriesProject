@@ -39,8 +39,8 @@ class myHomeScreen extends StatelessWidget{
     margin: EdgeInsets.symmetric(horizontal: 24.71),
     child: TextField(
       decoration: InputDecoration(
-        hintText: 'Search Store',
-        hintStyle: TextStyle(
+          hintText: 'Search Store',
+          hintStyle: TextStyle(
           fontFamily: 'Gilroy',
           fontSize: 14.0,
           fontWeight: FontWeight.w600,
