@@ -162,7 +162,7 @@ class mySearch extends StatelessWidget{
               )
             ),
             body: gridviewSection,
-            bottomNavigationBar: bottomNavigationBar(),
+            bottomNavigationBar: bottomNavigationBar(1),
           ),
         )
     );

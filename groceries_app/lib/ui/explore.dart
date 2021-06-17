@@ -119,7 +119,7 @@ class myExplore extends StatelessWidget {
                   ],
                 ),
               ),
-              bottomNavigationBar: bottomNavigationBar(),
+              bottomNavigationBar: bottomNavigationBar(1),
             ),
           )
       );

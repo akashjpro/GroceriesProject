@@ -354,7 +354,7 @@ class myHomeScreen extends StatelessWidget{
                 GroceriesSection
               ],
             ),
-            bottomNavigationBar: bottomNavigationBar(),
+            bottomNavigationBar: bottomNavigationBar(0),
           ),
         )
     );

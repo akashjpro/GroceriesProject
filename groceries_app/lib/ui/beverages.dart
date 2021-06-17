@@ -114,7 +114,7 @@ class myBeverages extends StatelessWidget{
         home: Container(
           decoration: BoxDecoration(color: bg_coler),
           child: Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: bg_coler,
             appBar: AppBar(
               backgroundColor: bg_coler,
               centerTitle: true,
@@ -141,7 +141,6 @@ class myBeverages extends StatelessWidget{
               ],
             ),
             body: gridviewSection,
-            bottomNavigationBar: bottomNavigationBar(),
           ),
         )
     );

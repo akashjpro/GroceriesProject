@@ -49,6 +49,7 @@ flutter:
     - images/logo.png
     - images/bg1.png
     - images/img_drink.png
+    - images/img_accepted.png
     - images/img_coke.png
     - images/img_coca.png
     - images/img_pepsi.png
@@ -62,6 +63,9 @@ flutter:
     - images/img_vegetable.png
     - images/item_img.png
     - images/icon1.png
+    - images/icon_no_check.png
+    - images/icon_checked.png
+    - images/icon_back.png
     - images/icon_fillter.png
     - images/icon_minus.png
     - images/icon_plus_number.png
@@ -84,6 +88,12 @@ flutter:
     - images/icon_locate.png
     - images/icon_search.png
     - images/icon2.png
+    - images/icon_store_selected.png
+    - images/icon_favorite_selected.png
+    - images/icon_cart_selected.png
+    - images/icon_explore_selected.png
+    - images/icon_user_selected.png
+    - images/icon_cancel_no_border.png
     - images/banner1.png
     - images/banner2.png
     - images/icon_flag.png
@@ -112,6 +122,8 @@ flutter:
         - asset: fonts/Gilroy-Regular.ttf
         - asset: fonts/Gilroy-SemiBold.ttf
           weight: 600
+        - asset: fonts/Gilroy-Bold.ttf
+          weight: 700
     - family: Aclonica
       fonts:
         - asset: fonts/Aclonica-Regular.ttf

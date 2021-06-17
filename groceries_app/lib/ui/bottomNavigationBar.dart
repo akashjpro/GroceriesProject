@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class bottomNavigationBar extends StatelessWidget{
+  int currentIndex = 0 ;
+  bottomNavigationBar(this.currentIndex);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,7 +20,7 @@ class bottomNavigationBar extends StatelessWidget{
         topLeft: Radius.circular(30.0),
         topRight: Radius.circular(30.0),
     ),child:BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: currentIndex,
         backgroundColor: Color(0xffFFFFFF),
         showSelectedLabels: true,
         showUnselectedLabels: true,
@@ -40,35 +42,35 @@ class bottomNavigationBar extends StatelessWidget{
           BottomNavigationBarItem(
             icon: Container(
                 margin: EdgeInsets.only(bottom: 5),
-              child:Image.asset('images/icon_store.png'),
+              child:currentIndex == 0 ? Image.asset('images/icon_store_selected.png') : Image.asset('images/icon_store.png'),
             ),
             label: 'Store',
           ),
           BottomNavigationBarItem(
             icon:  Container(
               margin: EdgeInsets.only(bottom: 5),
-              child:Image.asset('images/icon_explore.png'),
+              child:currentIndex == 1 ? Image.asset('images/icon_explore_selected.png') : Image.asset('images/icon_explore.png'),
             ),
             label: 'Explore',
           ),
           BottomNavigationBarItem(
             icon:  Container(
               margin: EdgeInsets.only(bottom: 5),
-              child:Image.asset('images/icon_cart.png'),
+              child:currentIndex == 2 ? Image.asset('images/icon_cart_selected.png') : Image.asset('images/icon_cart.png'),
             ),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
             icon:  Container(
               margin: EdgeInsets.only(bottom: 5),
-              child:Image.asset('images/icon_favourite.png'),
+              child:currentIndex == 3 ? Image.asset('images/icon_favorite_selected.png') : Image.asset('images/icon_favourite.png'),
             ),
             label: 'Favourite',
           ),
           BottomNavigationBarItem(
             icon:  Container(
               margin: EdgeInsets.only(bottom: 5),
-              child:Image.asset('images/icon_account.png'),
+              child:currentIndex == 4 ? Image.asset('images/icon_user_selected.png') : Image.asset('images/icon_account.png'),
             ),
             label: 'Account',
           ),
