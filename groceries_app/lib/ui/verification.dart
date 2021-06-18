@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:groceries_app/ui/selectLocation.dart';
 
-void main() => runApp(new myNumber());
 
 final bg_coler = Color(0xffFCFCFC);
 final title_coler = Color(0xff030303);
@@ -9,7 +9,7 @@ final title_input_str = 'Enter your 4-digit code';
 final image_bg = AssetImage('images/bg_transparent.jpg');
 
 
-class myNumber extends StatelessWidget{
+class MyVerification extends StatelessWidget{
   Widget inputSection = new Container(
     margin: EdgeInsets.only(left: 24.53,right: 24.53),
     child: Column(
@@ -64,40 +64,44 @@ class myNumber extends StatelessWidget{
       ],
     ),
   );
-  Widget buttonSection = Container(
-      margin: EdgeInsets.all(25),
-      child:Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          TextButton(
-            onPressed: (){},
-            child: Text('Resend Code',
-              style: TextStyle(
-                  color: Color(0xff53B175),
-                  fontFamily: 'Gilroy',
-                  fontSize: 18.0
+  Widget buttonSection(BuildContext context){
+    return Container(
+        margin: EdgeInsets.all(25),
+        child:Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            TextButton(
+              onPressed: (){},
+              child: Text('Resend Code',
+                style: TextStyle(
+                    color: Color(0xff53B175),
+                    fontFamily: 'Gilroy',
+                    fontSize: 18.0
+                ),
               ),
             ),
-          ),
-          FlatButton(
-            color: Color(0xff53B175),
-            onPressed: (){},
-            minWidth: 73.0,
-            height: 73.0,
-            shape: CircleBorder(),
-            padding:EdgeInsets.all(15),
-            child: Stack(
-              children: [
-                Container(
-                  child: Icon(Icons.arrow_forward_ios,color: Color(0xffFFF9FF),),
-                )
-              ],
-            ),
-          )
-        ],
-      )
-  );
+            FlatButton(
+              color: Color(0xff53B175),
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => mySelectLocation()));
+              },
+              minWidth: 73.0,
+              height: 73.0,
+              shape: CircleBorder(),
+              padding:EdgeInsets.all(15),
+              child: Stack(
+                children: [
+                  Container(
+                    child: Icon(Icons.arrow_forward_ios,color: Color(0xffFFF9FF),),
+                  )
+                ],
+              ),
+            )
+          ],
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -113,13 +117,13 @@ class myNumber extends StatelessWidget{
             leading: IconButton(
               padding: EdgeInsets.only(left: 15.0),
               icon: Icon(Icons.arrow_back_ios,color: title_coler,size: 30.0),
-              onPressed: (){},
+              onPressed: (){ Navigator.pop(context);},
             ),
           ),
           body: Column(
             children: [
               Expanded(child: inputSection),
-              buttonSection,
+              buttonSection(context),
             ],
           ),
         ),

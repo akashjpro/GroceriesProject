@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:groceries_app/ui/verification.dart';
 
 void main() => runApp(new myNumber());
 
@@ -12,8 +13,7 @@ final image_bg = AssetImage('images/bg_transparent.jpg');
 class myNumber extends StatelessWidget{
   Widget inputSection = new Container(
     margin: EdgeInsets.only(left: 24.53,right: 24.53),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    child: ListView(
       children: [
         Container(
           margin: EdgeInsets.only(top: 60.0),
@@ -69,26 +69,30 @@ class myNumber extends StatelessWidget{
       ],
     ),
   );
-  Widget buttonSection = Container(
-    alignment: Alignment.bottomRight,
-    margin: EdgeInsets.all(25),
-    child:FlatButton(
-      color: Color(0xff53B175),
-      onPressed: (){},
-      minWidth: 73.0,
-      height: 73.0,
-      shape: CircleBorder(),
-      padding:EdgeInsets.all(15),
-      child: Stack(
-        children: [
-          Container(
-            child: Icon(Icons.arrow_forward_ios,color: Color(0xffFFF9FF),),
-          )
-        ],
-      ),
+  Widget buttonSection(BuildContext context){
+    return Container(
+        alignment: Alignment.bottomRight,
+        margin: EdgeInsets.all(25),
+        child:FlatButton(
+          color: Color(0xff53B175),
+          onPressed: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVerification()));
+          },
+          minWidth: 73.0,
+          height: 73.0,
+          shape: CircleBorder(),
+          padding:EdgeInsets.all(15),
+          child: Stack(
+            children: [
+              Container(
+                child: Icon(Icons.arrow_forward_ios,color: Color(0xffFFF9FF),),
+              )
+            ],
+          ),
 
-    )
-  );
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -104,13 +108,13 @@ class myNumber extends StatelessWidget{
             leading: IconButton(
               padding: EdgeInsets.only(left: 15.0),
               icon: Icon(Icons.arrow_back_ios,color: title_coler,size: 30.0),
-              onPressed: (){},
+              onPressed: (){Navigator.pop(context);},
             ),
           ),
           body: Column(
             children: [
               Expanded(child: inputSection),
-              buttonSection,
+              buttonSection(context),
             ],
           ),
         ),

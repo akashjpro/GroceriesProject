@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-void main() => runApp(new MyOnBording());
+import 'package:groceries_app/ui/signIn.dart';
 
 final btn_color = Color(0xff53B175);
 final btn_text_color =Color.fromRGBO(255, 249, 255, 1);
@@ -12,8 +11,28 @@ final small_title_color = Color.fromRGBO(252, 252, 252, 0.7);
 final small_title_str = 'Ger your groceries in as fast as one hour';
 
 
-class MyOnBording extends StatelessWidget{
 
+class OnBording extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: "OnBording",
+      home: Container(
+          decoration: BoxDecoration(image: DecorationImage(image: image_bg,fit: BoxFit.cover)),
+          child: MyOnBording(),
+      ),
+    );
+  }
+}
+class MyOnBording extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyOnBordingState();
+  }
+}
+class MyOnBordingState extends State<MyOnBording>{
   Widget titleSection = Container(
     child: Column(
       children: [
@@ -50,41 +69,41 @@ class MyOnBording extends StatelessWidget{
       ],
     ),
   );
-  Widget ButtonSection = Container(
-    child: FlatButton(
-      child: Text('Get Started',style: TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 18.0,fontFamily:'Gilroy',
-      ),),
-      color: btn_color,
-      textColor: btn_text_color,
-      onPressed: (){},
-      minWidth: 353.0,
-      height: 67.0,
-      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
-    )
-  );
+  Widget ButtonSection(BuildContext context){
+    return Container(
+        child: FlatButton(
+            child: Text('Get Started',style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 18.0,fontFamily:'Gilroy',
+            ),),
+            color: btn_color,
+            textColor: btn_text_color,
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => mySignIn()),
+              );
+            },
+            minWidth: 353.0,
+            height: 67.0,
+            shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
+        )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      title: 'On Bording',
-      home: Container(
-        decoration: BoxDecoration(image: DecorationImage(image: image_bg,fit: BoxFit.cover)),
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-            body: Container(
-              margin: EdgeInsets.only(bottom: 50.84),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  titleSection,
-                  ButtonSection,
-                ],
-              ),
-            )
-        ),
-      )
+    return Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Container(
+          margin: EdgeInsets.only(bottom: 50.84),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              titleSection,
+              ButtonSection(context),
+            ],
+          ),
+        )
     );
   }
 

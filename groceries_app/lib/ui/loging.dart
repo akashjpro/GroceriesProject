@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:groceries_app/ui/bottomNavigationBar.dart';
+import 'package:groceries_app/ui/homeScreen.dart';
+import 'package:groceries_app/ui/signUp.dart';
 
 void main() => runApp(new myLogin());
 
@@ -40,13 +43,13 @@ class _LoginFormState extends State<LoginForm>{
       decoration: InputDecoration(
         disabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(226, 226, 226, 1),width: 2.0)),
         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(226, 226, 226, 1),width: 2.0)),
-        hintText: 'Types of your password',
-        hintStyle:TextStyle(
-          fontFamily: 'Gilroy',
-          fontSize: 18.0,
-          color: Color(0xffb1b1b1),
-          letterSpacing: 1
-        ),
+        // hintText: 'Types of your password',
+        // hintStyle:TextStyle(
+        //   fontFamily: 'Gilroy',
+        //   fontSize: 18.0,
+        //   color: Color(0xffb1b1b1),
+        //   letterSpacing: 1
+        // ),
         suffix: InkWell(
           onTap: _toggleHidden,
           child: Icon(_isHidden?Icons.visibility:Icons.visibility_off),
@@ -132,12 +135,12 @@ class myLogin extends StatelessWidget{
                   decoration: InputDecoration(
                     disabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(226, 226, 226, 1),width: 2.0)),
                     focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(226, 226, 226, 1),width: 2.0)),
-                    hintText: 'Types of your email',
-                    hintStyle:TextStyle(
-                      fontFamily: 'Gilroy',
-                      fontSize: 18.0,
-                      color: Color(0xffb1b1b1),
-                    ),
+                    // hintText: 'Types of your email',
+                    // hintStyle:TextStyle(
+                    //   fontFamily: 'Gilroy',
+                    //   fontSize: 18.0,
+                    //   color: Color(0xffb1b1b1),
+                    // ),
                   ),
                   onTap:(){},
                 ),
@@ -159,71 +162,77 @@ class myLogin extends StatelessWidget{
       ],
     ),
   );
-  Widget buttonSection = new Container(
-    margin: EdgeInsets.only(left: 24.53,right: 24.53),
-    child: Column(
-      children: [
-        Container(
-          alignment: Alignment.topRight,
-          child: TextButton(
-            child: Text(
-              'Forgot Password?',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-                fontFamily: 'Gilroy',
-                color: Color(0xff181725),
-              ),
-            ),
-            onPressed: (){},
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.only(top: 30.0),
-          child:  FlatButton(
-              child: Text('Log In',style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 18.0,fontFamily:'Gilroy',
-              ),),
-              color: btn_color,
-              textColor: btn_text_color,
-              onPressed: (){},
-              minWidth: 353.0,
-              height: 67.0,
-              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.only(top: 25.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Don\'t have an account? ',style:
-                TextStyle(
+  Widget buttonSection(BuildContext context){
+    return Container(
+      margin: EdgeInsets.only(left: 24.53,right: 24.53),
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.topRight,
+            child: TextButton(
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                   fontFamily: 'Gilroy',
                   color: Color(0xff181725),
                 ),
               ),
-              TextButton(
-                child: Text(
-                  'Sign up',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
-                    fontFamily: 'Gilroy',
-                    color: btn_color,
-                  ),
-                ),
-                onPressed: (){},
-              )
-            ],
+              onPressed: (){},
+            ),
           ),
-        )
-      ],
-    ),
-  );
+          Container(
+            margin: EdgeInsets.only(top: 30.0),
+            child:  FlatButton(
+                child: Text('Log In',style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18.0,fontFamily:'Gilroy',
+                ),),
+                color: btn_color,
+                textColor: btn_text_color,
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => NavigationBar()));
+                },
+                minWidth: 353.0,
+                height: 67.0,
+                shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Don\'t have an account? ',style:
+                TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  fontFamily: 'Gilroy',
+                  color: Color(0xff181725),
+                ),
+                ),
+                TextButton(
+                  child: Text(
+                    'Sign up',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                      fontFamily: 'Gilroy',
+                      color: btn_color,
+                    ),
+                  ),
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => mySignUp()));
+                  },
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -238,7 +247,7 @@ class myLogin extends StatelessWidget{
               logoSection,
               titleSection,
               inputSection,
-              buttonSection
+              buttonSection(context)
             ],
           ),
         ),

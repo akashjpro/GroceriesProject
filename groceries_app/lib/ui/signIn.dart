@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
-void main() => runApp(new mySignIn());
-
+import 'package:groceries_app/ui/number.dart';
 final bg_coler = Color(0xffFCFCFC);
 final title_coler = Color(0xff030303);
 final title_input_str = 'Get your groceries with nectar';
@@ -11,63 +9,64 @@ final btn_fb_color = Color.fromRGBO(74, 102, 172, 1);
 final btn_gg_color = Color.fromRGBO(83, 131, 236, 1);
 final btn_text_color = Color.fromRGBO(252, 252, 252, 1);
 
-FlatButton _buttonLogin(String btnIcon,String btnText,Color btn_color){
-  return FlatButton(
-    color: btn_color,
-    textColor: btn_text_color,
-    onPressed: (){},
-    minWidth: 353.0,
-    height: 67.0,
-    shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0)),
-    padding:EdgeInsets.only(left: 20.0),
-    child: Stack(
-      children: [
-        Container(
-          width:353.0,
-          alignment: Alignment.center,
-          child: Text(btnText,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 18.0,
-              fontFamily:'Gilroy',
-          ),),
-        ),
-        Container(
-          margin: EdgeInsets.only(left: 20),
-          child: Image.asset(btnIcon),
-        )
-      ],
-    ),
 
-  );
-}
 class mySignIn extends StatelessWidget{
+  static FlatButton _buttonLogin(String btnIcon,String btnText,Color btn_color){
+    return FlatButton(
+      color: btn_color,
+      textColor: btn_text_color,
+      onPressed: (){},
+      minWidth: 353.0,
+      height: 67.0,
+      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0)),
+      padding:EdgeInsets.only(left: 20.0),
+      child: Stack(
+        children: [
+          Container(
+            width:353.0,
+            alignment: Alignment.center,
+            child: Text(btnText,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 18.0,
+                fontFamily:'Gilroy',
+              ),),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 20),
+            child: Image.asset(btnIcon),
+          )
+        ],
+      ),
 
+    );
+  }
   Widget bannerSection = new Container(
     child: Image.asset('images/banner1.png',
     fit: BoxFit.cover,),
   );
-  Widget inputSection = new Container(
-    margin: EdgeInsets.only(left: 24.53,right: 24.53),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 222.0,
-          child: Text(title_input_str,
-          maxLines: 2,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontSize: 26.0,
-            fontFamily: 'Gilroy',
-            fontWeight: FontWeight.w600,
-            color: title_coler,
+  Widget inputSection(BuildContext context){
+    return  Container(
+      margin: EdgeInsets.only(left: 24.53,right: 24.53),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 222.0,
+            child: Text(title_input_str,
+              maxLines: 2,
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 26.0,
+                fontFamily: 'Gilroy',
+                fontWeight: FontWeight.w600,
+                color: title_coler,
+              ),
+            ),
           ),
-          ),
-        ),
-        Container(
-            margin: EdgeInsets.only(top: 20.61),
-            child: TextField(
+          Container(
+              margin: EdgeInsets.only(top: 20.61),
+              child: TextField(
                 decoration: InputDecoration(
                     disabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(226, 226, 226, 1),width: 2.0)),
                     focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(226, 226, 226, 1),width: 2.0)),
@@ -84,25 +83,28 @@ class mySignIn extends StatelessWidget{
                       minHeight: 25.0,
                     )
                 ),
-              readOnly: true,
-              enableInteractiveSelection: true,
-              onTap:(){},
-            )
-        ),
-        Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.only(top: 30,bottom: 27.8),
-          child: Text('Or connect with social media',
-            style: TextStyle(
-              fontFamily: 'Gilroy',
-              fontSize: 14.0,
-              color: Color(0xff828282),
-              fontWeight: FontWeight.w600,
-          ),),
-        )
-      ],
-    ),
-  );
+                readOnly: true,
+                enableInteractiveSelection: true,
+                onTap:(){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => myNumber()));
+                },
+              )
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(top: 30,bottom: 27.8),
+            child: Text('Or connect with social media',
+              style: TextStyle(
+                fontFamily: 'Gilroy',
+                fontSize: 14.0,
+                color: Color(0xff828282),
+                fontWeight: FontWeight.w600,
+              ),),
+          )
+        ],
+      ),
+    );
+  }
   Widget buttonSection = new Container(
     height: 170,
     child: Column(
@@ -127,7 +129,7 @@ class mySignIn extends StatelessWidget{
             child: Column(
               children: [
                 bannerSection,
-                inputSection,
+                inputSection(context),
                 buttonSection,
               ],
             ),

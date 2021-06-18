@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/ui/bottomNavigationBar.dart';
+import 'package:groceries_app/ui/filters.dart';
 void main() => runApp(new mySearch());
 final bg_coler = Color(0xffFCFCFC);
 final title_coler = Color(0xff030303);
@@ -155,14 +156,15 @@ class mySearch extends StatelessWidget{
                     IconButton(
                       padding: EdgeInsets.only(right: 25.0),
                       icon: Image.asset('images/icon_fillter.png'),
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => myFilters()));
+                      },
                     )
                   ],
                 ),
               )
             ),
             body: gridviewSection,
-            bottomNavigationBar: bottomNavigationBar(1),
           ),
         )
     );

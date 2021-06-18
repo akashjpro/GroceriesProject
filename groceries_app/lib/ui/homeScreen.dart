@@ -2,6 +2,10 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceries_app/ui/bottomNavigationBar.dart';
+import 'package:groceries_app/ui/explore.dart';
+import 'package:groceries_app/ui/favorites.dart';
+import 'package:groceries_app/ui/myCart.dart';
+import 'package:groceries_app/ui/productDetail.dart';
 
 void main() => runApp(new myHomeScreen());
 
@@ -81,7 +85,7 @@ class myHomeScreen extends StatelessWidget{
       ),
     ),
   );
-  static Container _itemProduct(String name,String detail,String price,String img){
+  static Container _itemProduct(String name,String detail,String price,String img,BuildContext context){
     return new Container(
       margin: EdgeInsets.only(right: 15),
         decoration: BoxDecoration(
@@ -92,7 +96,7 @@ class myHomeScreen extends StatelessWidget{
         width: 170.32,
         height: 248.51,
         child: InkWell(
-          onTap: (){},
+          onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) => myProductDetail()));},
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,177 +190,176 @@ class myHomeScreen extends StatelessWidget{
       )
     );
   }
-  Widget ExclusiveOfferSection = new Container(
-    margin: EdgeInsets.symmetric(horizontal: 24.71),
-    child:Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 30,bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Exclusive Offer',style:
-              TextStyle(
-                fontFamily: 'Gilroy',
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                color: Color(0xff181725),
-              ),),
-              TextButton(
-                child: Text('See all',style:
+  Widget ExclusiveOfferSection(BuildContext context){
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 24.71),
+      child:Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 30,bottom: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Exclusive Offer',style:
                 TextStyle(
                   fontFamily: 'Gilroy',
                   fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Color(0xff53b175),
+                  fontSize: 24,
+                  color: Color(0xff181725),
                 ),),
-                onPressed: (){},
-              )
-            ],
+                TextButton(
+                  child: Text('See all',style:
+                  TextStyle(
+                    fontFamily: 'Gilroy',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: Color(0xff53b175),
+                  ),),
+                  onPressed: (){},
+                )
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height:248.51,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
+          SizedBox(
+            height:248.51,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
 
-            children: [
-              _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png'),
-              _itemProduct('Red Apple','1kg,Priceg','\$4.99','images/icon_apple.png'),
-              _itemProduct('Bell Pepper Red','7pcs,Priceg','\$4.99','images/icon_tomato.png'),
-              _itemProduct('Ginger','7pcs,Priceg','\$4.99','images/icon_item.png'),
-              _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png'),
-            ],
+              children: [
+                _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png',context),
+                _itemProduct('Red Apple','1kg,Priceg','\$4.99','images/icon_apple.png',context),
+                _itemProduct('Bell Pepper Red','7pcs,Priceg','\$4.99','images/icon_tomato.png',context),
+                _itemProduct('Ginger','7pcs,Priceg','\$4.99','images/icon_item.png',context),
+                _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png',context),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
-  );
-  Widget BestSellingSection = new Container(
-    margin: EdgeInsets.symmetric(horizontal: 24.71),
-    child:Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 30,bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Best Selling',style:
-              TextStyle(
-                fontFamily: 'Gilroy',
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                color: Color(0xff181725),
-              ),),
-              TextButton(
-                child: Text('See all',style:
+        ],
+      ),
+    );
+  }
+  Widget BestSellingSection(BuildContext context){
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 24.71),
+      child:Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 30,bottom: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Best Selling',style:
                 TextStyle(
                   fontFamily: 'Gilroy',
                   fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Color(0xff53b175),
+                  fontSize: 24,
+                  color: Color(0xff181725),
                 ),),
-                onPressed: (){},
-              )
-            ],
+                TextButton(
+                  child: Text('See all',style:
+                  TextStyle(
+                    fontFamily: 'Gilroy',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: Color(0xff53b175),
+                  ),),
+                  onPressed: (){},
+                )
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height:248.51,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
+          SizedBox(
+            height:248.51,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
 
-            children: [
-              _itemProduct('Bell Pepper Red','7pcs,Priceg','\$4.99','images/icon_tomato.png'),
-              _itemProduct('Ginger','7pcs,Priceg','\$4.99','images/icon_item.png'),
-              _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png'),
-              _itemProduct('Red Apple','1kg,Priceg','\$4.99','images/icon_apple.png'),
-              _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png'),
-            ],
+              children: [
+                _itemProduct('Bell Pepper Red','7pcs,Priceg','\$4.99','images/icon_tomato.png',context),
+                _itemProduct('Ginger','7pcs,Priceg','\$4.99','images/icon_item.png',context),
+                _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png',context),
+                _itemProduct('Red Apple','1kg,Priceg','\$4.99','images/icon_apple.png',context),
+                _itemProduct('Organic Bananas','7pcs,Priceg','\$4.99','images/icon_bananas.png',context),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
-  );
-  Widget GroceriesSection = new Container(
-    margin: EdgeInsets.symmetric(horizontal: 24.71),
-    child:Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 30,bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Groceries',style:
-              TextStyle(
-                fontFamily: 'Gilroy',
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                color: Color(0xff181725),
-              ),),
-              TextButton(
-                child: Text('See all',style:
+        ],
+      ),
+    );
+  }
+  Widget GroceriesSection(BuildContext context){
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 24.71),
+      child:Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 30,bottom: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Groceries',style:
                 TextStyle(
                   fontFamily: 'Gilroy',
                   fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Color(0xff53b175),
+                  fontSize: 24,
+                  color: Color(0xff181725),
                 ),),
-                onPressed: (){},
-              )
-            ],
+                TextButton(
+                  child: Text('See all',style:
+                  TextStyle(
+                    fontFamily: 'Gilroy',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: Color(0xff53b175),
+                  ),),
+                  onPressed: (){},
+                )
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height:105,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              _itemGroupPro('Pulses', 'images/icon_pulses.png', Color(0xffF8A44C).withOpacity(0.15)),
-              _itemGroupPro('Rice', 'images/icon_rice.png', Color(0xff53b175).withOpacity(0.15)),
-              _itemGroupPro('Pulses', 'images/icon_pulses.png', Color(0xffF8A44C).withOpacity(0.15)),
-              _itemGroupPro('Rice', 'images/icon_rice.png', Color(0xff53b175).withOpacity(0.15)),
-            ],
+          SizedBox(
+            height:105,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                _itemGroupPro('Pulses', 'images/icon_pulses.png', Color(0xffF8A44C).withOpacity(0.15)),
+                _itemGroupPro('Rice', 'images/icon_rice.png', Color(0xff53b175).withOpacity(0.15)),
+                _itemGroupPro('Pulses', 'images/icon_pulses.png', Color(0xffF8A44C).withOpacity(0.15)),
+                _itemGroupPro('Rice', 'images/icon_rice.png', Color(0xff53b175).withOpacity(0.15)),
+              ],
+            ),
           ),
-        ),
-        SizedBox(
-          height:248.51,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
+          SizedBox(
+            height:248.51,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
 
-            children: [
-              _itemProduct('Beef Bone','1kg,Priceg','\$4.99','images/icon_beef.png'),
-              _itemProduct('Broiler Chicken','1kg,Priceg','\$4.99','images/icon_chicken.png'),
-              _itemProduct('Beef Bone','1kg,Priceg','\$4.99','images/icon_beef.png'),
-              _itemProduct('Broiler Chicken','1kg,Priceg','\$4.99','images/icon_chicken.png'),
-            ],
+              children: [
+                _itemProduct('Beef Bone','1kg,Priceg','\$4.99','images/icon_beef.png',context),
+                _itemProduct('Broiler Chicken','1kg,Priceg','\$4.99','images/icon_chicken.png',context),
+                _itemProduct('Beef Bone','1kg,Priceg','\$4.99','images/icon_beef.png',context),
+                _itemProduct('Broiler Chicken','1kg,Priceg','\$4.99','images/icon_chicken.png',context),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-        title: 'My Sign In',
-        home: Container(
-          decoration: BoxDecoration(color: bg_coler),
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: ListView(
-              children: [
-                logoSection,
-                searchSection,
-                sliderBannerSection,
-                ExclusiveOfferSection,
-                BestSellingSection,
-                GroceriesSection
-              ],
-            ),
-            bottomNavigationBar: bottomNavigationBar(0),
-          ),
-        )
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: ListView(
+        children: [
+          logoSection,
+          searchSection,
+          sliderBannerSection,
+          ExclusiveOfferSection(context),
+          BestSellingSection(context),
+          GroceriesSection(context)
+        ],
+      ),
     );
   }
   

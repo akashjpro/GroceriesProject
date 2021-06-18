@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:groceries_app/ui/loging.dart';
 
 void main() => runApp(new mySelectLocation());
 final btn_color = Color(0xff53B175);
@@ -173,22 +174,26 @@ class mySelectLocation extends StatelessWidget{
       ],
     ),
   );
-  Widget ButtonSection = Container(
-      alignment: Alignment.bottomCenter,
-      margin: EdgeInsets.only(top: 40.0,bottom: 40.0),
-      child: FlatButton(
-          child: Text('Submit',style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 18.0,fontFamily:'Gilroy',
-          ),),
-          color: btn_color,
-          textColor: btn_text_color,
-          onPressed: (){},
-          minWidth: 353.0,
-          height: 67.0,
-          shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
-      )
-  );
+  Widget ButtonSection(BuildContext context){
+    return Container(
+        alignment: Alignment.bottomCenter,
+        margin: EdgeInsets.only(top: 40.0,bottom: 40.0),
+        child: FlatButton(
+            child: Text('Submit',style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 18.0,fontFamily:'Gilroy',
+            ),),
+            color: btn_color,
+            textColor: btn_text_color,
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => myLogin()));
+            },
+            minWidth: 353.0,
+            height: 67.0,
+            shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -204,14 +209,14 @@ class mySelectLocation extends StatelessWidget{
             leading: IconButton(
               padding: EdgeInsets.only(left: 15.0),
               icon: Icon(Icons.arrow_back_ios,color: title_coler,size: 30.0),
-              onPressed: (){},
+              onPressed: (){ Navigator.pop(context);},
             ),
           ),
           body: ListView(
             children: [
               titleSection,
               inputSection,
-              ButtonSection,
+              ButtonSection(context),
             ],
           ),
         ),

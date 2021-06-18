@@ -271,21 +271,23 @@ class myProductDetail extends StatelessWidget{
       color: myColor,
     );
   }
-  Widget ButtonSection = Container(
-      margin: EdgeInsets.only(bottom: 20),
-      child: FlatButton(
-          child: Text('Add To Basket',style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 18.0,fontFamily:'Gilroy',
-          ),),
-          color: btn_color,
-          textColor: btn_text_color,
-          onPressed: (){},
-          minWidth: 353.0,
-          height: 67.0,
-          shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
-      )
-  );
+  Widget ButtonSection(BuildContext context){
+    return Container(
+        margin: EdgeInsets.only(bottom: 20),
+        child: FlatButton(
+            child: Text('Add To Basket',style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 18.0,fontFamily:'Gilroy',
+            ),),
+            color: btn_color,
+            textColor: btn_text_color,
+            onPressed: (){Navigator.pop(context);},
+            minWidth: 353.0,
+            height: 67.0,
+            shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(19.0))
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -299,7 +301,7 @@ class myProductDetail extends StatelessWidget{
             elevation: 0.0,
             leading:IconButton(
               icon: Image.asset('images/icon_back_arrow.png'),
-              onPressed: (){},
+              onPressed: (){Navigator.pop(context);},
             ),
             actions: [
               IconButton(
@@ -314,7 +316,7 @@ class myProductDetail extends StatelessWidget{
               children: [
                 imageSection,
                 contentSection,
-                ButtonSection,
+                ButtonSection(context),
               ],
             ),
           ),

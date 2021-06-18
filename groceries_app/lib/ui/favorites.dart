@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/ui/bottomNavigationBar.dart';
+import 'package:groceries_app/ui/explore.dart';
+import 'package:groceries_app/ui/homeScreen.dart';
+import 'package:groceries_app/ui/myCart.dart';
 
 void main() => runApp(myFavorites());
 final bg_coler = Color(0xffFCFCFC);
@@ -94,45 +97,41 @@ class myFavorites extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      title: 'Favorites',
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: bg_coler,
-          centerTitle: true,
-          elevation: 0,
-          title: Text(
-            'Favorites',
-            style: TextStyle(
-                fontFamily: 'Gilroy',
-                fontSize: 20.0,
-                fontWeight: FontWeight.w700,
-                color: title_coler
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: bg_coler,
+        centerTitle: true,
+        elevation: 0,
+        title: Text(
+          'Favorites',
+          style: TextStyle(
+              fontFamily: 'Gilroy',
+              fontSize: 20.0,
+              fontWeight: FontWeight.w700,
+              color: title_coler
           ),
         ),
-        body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 25.27),
-          color: bg_coler,
-          child: Column(
-            children: [
-              Expanded(child: ListView(
-                children: [
-                  buildItemCart('Bell Pepper Red','1kg,Price','\$4.99','images/icon_tomato.png'),
-                  buildItemCart('Egg Chicken Red','4pcs,Price','\$1.99','images/img_eggs.png'),
-                  buildItemCart('Organic Bananas','12kg,Price','\$3.00','images/icon_bananas.png'),
-                  buildItemCart('Ginger','250gm,Price','\$2.99','images/icon_item.png'),
-                  buildItemCart('Bell Pepper Red','1kg,Price','\$4.99','images/icon_tomato.png'),
-                  buildItemCart('Egg Chicken Red','4pcs,Price','\$1.99','images/img_eggs.png'),
-                  buildItemCart('Organic Bananas','12kg,Price','\$3.00','images/icon_bananas.png'),
-                  buildItemCart('Ginger','250gm,Price','\$2.99','images/icon_item.png'),
-                ],
-              )),
-              ButtonSection
-            ],
-          ),
+      ),
+      body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 25.27),
+        color: bg_coler,
+        child: Column(
+          children: [
+            Expanded(child: ListView(
+              children: [
+                buildItemCart('Bell Pepper Red','1kg,Price','\$4.99','images/icon_tomato.png'),
+                buildItemCart('Egg Chicken Red','4pcs,Price','\$1.99','images/img_eggs.png'),
+                buildItemCart('Organic Bananas','12kg,Price','\$3.00','images/icon_bananas.png'),
+                buildItemCart('Ginger','250gm,Price','\$2.99','images/icon_item.png'),
+                buildItemCart('Bell Pepper Red','1kg,Price','\$4.99','images/icon_tomato.png'),
+                buildItemCart('Egg Chicken Red','4pcs,Price','\$1.99','images/img_eggs.png'),
+                buildItemCart('Organic Bananas','12kg,Price','\$3.00','images/icon_bananas.png'),
+                buildItemCart('Ginger','250gm,Price','\$2.99','images/icon_item.png'),
+              ],
+            )),
+            ButtonSection
+          ],
         ),
-        bottomNavigationBar: bottomNavigationBar(3),
       ),
     );
   }

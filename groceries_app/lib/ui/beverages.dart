@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/ui/bottomNavigationBar.dart';
+import 'package:groceries_app/ui/productDetail.dart';
 void main() => runApp(new myBeverages());
 final bg_coler = Color(0xffFCFCFC);
 final title_coler = Color(0xff030303);
@@ -130,13 +131,15 @@ class myBeverages extends StatelessWidget{
               ),
               leading:IconButton(
                 icon: Image.asset('images/icon_back_arrow.png'),
-                onPressed: (){},
+                onPressed: (){ Navigator.pop(context); },
               ),
               actions: [
                 IconButton(
                   padding: EdgeInsets.only(right: 25.0),
                   icon: Image.asset('images/icon_fillter.png'),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => myProductDetail()));
+                  },
                 )
               ],
             ),

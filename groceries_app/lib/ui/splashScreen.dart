@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 final bgColor = Color(0xff53B175);
 
 void main() => runApp(new MySplashScreen());
-class MySplashScreen extends StatelessWidget{
 
+class MySplashScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
